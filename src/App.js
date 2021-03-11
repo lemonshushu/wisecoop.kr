@@ -8,7 +8,7 @@ import banner from './resources/images/banner.png'
 function App() {
   return (
     <div className="App">
-      <Container>
+      <Container fluid="md" className="p-0">
         <header>
           <div className="mb-0 d-none d-md-flex justify-content-start align-items-end p-3" id="header">
             <img src={logo} alt="와이즈쿱 로고" id="logo-desktop" className="d-none d-md-block" />

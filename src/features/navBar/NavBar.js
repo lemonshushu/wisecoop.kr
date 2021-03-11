@@ -5,12 +5,14 @@ import logo from '../../resources/images/logo.png';
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="md" >
-      <Navbar.Brand className="text-left d-block d-md-none">
+    <Navbar bg="light" expand="md" className="px-4 py-1">
+      <div class="d-flex justify-content-between w-100 align-items-center d-block d-md-none">
+        <Navbar.Brand className="text-left">
           <img src={logo} height="80px" alt="와이즈쿱 로고" className="m-0" />
           <p className="m-0 text-secondary"><small>SW Education Cloud 전문가 협동조합</small></p>
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto" />
+      </div>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">
           <Nav.Link href="#home" className="font-weight-bold text-dark">홈</Nav.Link>
