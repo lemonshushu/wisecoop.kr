@@ -36,7 +36,7 @@ function App() {
         <footer>
           <Jumbotron fluid className="p-5" id="footer">
             <div className="m-auto justify-content-left">
-              <p className="text-light">와이즈쿱협동조합 | 김은미 | 대전광역시 유성구 대덕대로 1175, 404호(송강동, 대전북부여성가족원) <br />사업자등록번호 : 797-86-01562 | 이메일 : wisecoopsw@gmail.com</p>
+              <p className="text-light"><small>와이즈쿱협동조합 | 김은미 | 대전광역시 유성구 대덕대로 1175, 404호(송강동, 대전북부여성가족원) <br />사업자등록번호 : 797-86-01562 | 이메일 : wisecoopsw@gmail.com</small></p>
             </div>
           </Jumbotron>
         </footer>
