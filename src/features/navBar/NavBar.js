@@ -5,7 +5,7 @@ import logo from '../../resources/images/logo.png';
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="md" className="px-4 py-1">
+    <Navbar bg="light" expand="md" className="px-4 py-1 w-100" style={{position: 'absolute', zIndex: 3}}>
       <div className="d-flex justify-content-between w-100 align-items-center d-block d-md-none">
         <Navbar.Brand className="text-left" href="/">
           <img src={logo} height="80px" alt="와이즈쿱 로고" className="m-0" />

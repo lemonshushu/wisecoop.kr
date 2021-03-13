@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Container fluid="md" className="p-0">
+        <Container fluid="md" className="p-0" style={{position: 'relative'}}>
           <header>
             <Link to="/" style={{ textDecoration: 'none' }}>
               <div className="mb-0 d-none d-md-flex justify-content-start align-items-end p-3" id="header">
@@ -25,6 +25,7 @@ function App() {
               </div>
             </Link>
             <NavBar />
+            <div className="d-xs-none, d-md-block" style={{height: 70}} />
           </header>
           <Switch>
             <Route exact path="/" component={Home} />

@@ -1,12 +1,16 @@
 import { Card, Col, Image, Jumbotron, ResponsiveEmbed, Row } from "react-bootstrap";
 import banner from '../../resources/images/banner.png'
+import bannerMobile from '../../resources/images/bannerMobile.jpg'
 
 function Home() {
   return (
     <div>
       <section id="banner">
-          <Jumbotron fluid className="p-0 mt-3">
+          <Jumbotron fluid className="p-0 d-none d-md-block" >
             <Image src={banner} alt="홈페이지 배너" fluid />
+          </Jumbotron>
+          <Jumbotron fluid className="p-0 d-xs-block d-md-none" style={{height: '100vh', position: 'relative', backgroundColor: '#fabe00'}}>
+            <Image src={bannerMobile} alt="홈페이지 배너" fluid style={{position: 'absolute', left:0, bottom: 0, zIndex: 1}} />
           </Jumbotron>
         </section>
         <section id="videos">

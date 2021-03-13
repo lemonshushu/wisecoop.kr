@@ -6,6 +6,7 @@ import { Accordion, Card, Col, Row, Button } from 'react-bootstrap';
 function Loc() {
   return (
     <div>
+      <div className="d-xs-block d-md-none" style={{ height: 50 }} />
 
       <Card className="mt-3 p-5 d-none d-md-block">
         <Card.Title className="text-primary mb-3" style={{ fontSize: 32 }}><strong>오시는길</strong></Card.Title>
