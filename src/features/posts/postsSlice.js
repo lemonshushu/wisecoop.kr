@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
-import apiKeyObj from './apiKey.json';
 
-const apiKey = apiKeyObj.apiKey;
+const apiKey = process.env.API_KEY;
 
 const postsAdapter = createEntityAdapter({
   sortComparer: (a, b) => b.published.localeCompare(a.date)
