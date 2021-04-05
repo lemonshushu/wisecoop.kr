@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
+import dotenv from 'dotenv';
 
-const apiKey = process.env.API_KEY;
+dotenv.config();
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const postsAdapter = createEntityAdapter({
   sortComparer: (a, b) => b.published.localeCompare(a.date)
