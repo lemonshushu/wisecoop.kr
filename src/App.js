@@ -8,6 +8,8 @@ import NavBar from './features/navBar/NavBar';
 import Home from './features/home/Home';
 import Intro from './features/intro/Intro';
 import Loc from './features/loc/Loc';
+import { PostsList } from './features/posts/PostsList'
+import { SinglePostPage } from './features/posts/SinglePostPage'
 
 function App() {
   return (
@@ -31,6 +33,13 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/intro" component={Intro} />
             <Route exact path="/location" component={Loc} />
+            <Route exact path="/posts" render={() => (
+                <React.Fragment>
+                  <PostsList />
+                </React.Fragment>
+              )}
+            />
+            <Route exact path="/posts/:postId" component={SinglePostPage} />
             <Redirect to="/" />
           </Switch>
         </Container>
