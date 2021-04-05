@@ -8,6 +8,7 @@ export const SinglePostPage = ({ match }) => {
 
   const post = useSelector(state => selectPostById(state, postId));
 
+
   if (!post) {
     return (
       <section>
@@ -21,7 +22,7 @@ export const SinglePostPage = ({ match }) => {
       <article className="post">
         <h2>{post.title}</h2>
         <TimeAgo timestamp={post.date} />
-        <p className="post-content">{post.content}</p>
+        <div dangerouslySetInnerHTML={ {__html: post.content} }></div>
       </article>
     </section>
   );
