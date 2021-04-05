@@ -59,6 +59,7 @@ export const PostsList = (params) => {
 
   return (
     <section className="posts-list">
+      <div className="d-xs-block d-md-none" style={{ height: 50 }} />
       <h2 className="text-primary mt-3 mb-5">{params.label}</h2>
       {content}
     </section>
