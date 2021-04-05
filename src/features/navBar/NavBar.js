@@ -17,8 +17,8 @@ function NavBar() {
         <Nav className="m-auto p-1" style={{fontSize: 18}}>
           <Nav.Link href="/" className="font-weight-bold text-dark">홈</Nav.Link>
           <Nav.Link href="/intro" className="font-weight-bold text-dark">조합 소개</Nav.Link>
-          <Nav.Link href="/posts" className="font-weight-bold text-dark">SW교육</Nav.Link>
-          <Nav.Link href="/posts" className="font-weight-bold text-dark">교육자료실</Nav.Link>
+          <Nav.Link href="/posts/swedu" className="font-weight-bold text-dark">SW교육</Nav.Link>
+          <Nav.Link href="/posts/reference" className="font-weight-bold text-dark">교육자료실</Nav.Link>
           <Nav.Link href="/location" className="font-weight-bold text-dark">오시는길</Nav.Link>
         </Nav>
       </Navbar.Collapse>

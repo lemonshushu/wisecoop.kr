@@ -33,9 +33,15 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/intro" component={Intro} />
             <Route exact path="/location" component={Loc} />
-            <Route exact path="/posts" render={() => (
+            <Route exact path="/posts/swedu" render={() => (
                 <React.Fragment>
-                  <PostsList />
+                  <PostsList label="SW교육"/>
+                </React.Fragment>
+              )}
+            />
+            <Route exact path="/posts/reference" render={() => (
+                <React.Fragment>
+                  <PostsList label="교육자료실" />
                 </React.Fragment>
               )}
             />
