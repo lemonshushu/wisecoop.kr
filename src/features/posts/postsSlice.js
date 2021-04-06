@@ -13,14 +13,10 @@ const initialState = postsAdapter.getInitialState({
   error: null
 });
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (label) => {
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   const response = await fetch(`https://www.googleapis.com/blogger/v3/blogs/8051615640630699138/posts?key=${apiKey}&fetchImages=true`)
   const jsonResponse = await response.json();
-  console.log(jsonResponse.items);
-  console.log(label);
-  const result = jsonResponse.items.filter(post => {return post.labels.indexOf(label) !== -1});
-  console.log(result);
-  return result;
+  return jsonResponse.items;
 });
 
 const postsSlice = createSlice({

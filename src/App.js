@@ -4,10 +4,10 @@ import { Container, Jumbotron } from 'react-bootstrap';
 import logo from './resources/images/logo.png';
 import { Redirect, Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 
-import NavBar from './features/navBar/NavBar';
-import Home from './features/home/Home';
-import Intro from './features/intro/Intro';
-import Loc from './features/loc/Loc';
+import {NavBar} from './features/navBar/NavBar';
+import {Home} from './features/home/Home';
+import {Intro} from './features/intro/Intro';
+import {Loc} from './features/loc/Loc';
 import { PostsList } from './features/posts/PostsList'
 import { SinglePostPage } from './features/posts/SinglePostPage'
 
@@ -33,18 +33,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/intro" component={Intro} />
             <Route exact path="/location" component={Loc} />
-            <Route exact path="/posts/swedu" render={() => (
-                <React.Fragment>
-                  <PostsList label="SW교육"/>
-                </React.Fragment>
-              )}
-            />
-            <Route exact path="/posts/reference" render={() => (
-                <React.Fragment>
-                  <PostsList label="교육자료실" />
-                </React.Fragment>
-              )}
-            />
+            <Route exact path="/categories/:label" component={PostsList}/>
             <Route exact path="/posts/:postId" component={SinglePostPage} />
             <Redirect to="/" />
           </Switch>

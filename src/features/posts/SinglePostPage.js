@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Card} from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { selectPostById } from './postsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPosts, selectPostById } from './postsSlice';
 import { TimeAgo } from './TimeAgo';
 import style from './SinglePostPage.module.css';
+import { Link } from 'react-router-dom';
 
 export const SinglePostPage = ({ match }) => {
   const { postId } = match.params;
+  const postStatus = useSelector(state => state.posts.status);
   const post = useSelector(state => selectPostById(state, postId));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (postStatus === 'idle') {
+      dispatch(fetchPosts());
+    }
+  }, [postStatus, dispatch]);
+  
 
   if (!post) {
     return (
@@ -34,7 +44,7 @@ export const SinglePostPage = ({ match }) => {
           </Card.Body>
         </Card>
       </article>
-      <Button variant="light" className="m-3" size="lg" href={post.labels[0]=== "SW교육" ? 'swedu' : 'reference'} >목록</Button>
+      <Link to={`/categories/${post.labels[0]}`}><Button variant="light" className="m-3" size="lg">목록</Button></Link>
     </section>
   );
 };

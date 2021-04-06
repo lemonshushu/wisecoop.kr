@@ -109,4 +109,4 @@ function Loc() {
 
 }
 
-export default Loc;
+export {Loc};

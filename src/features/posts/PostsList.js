@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import { Card, Col, Row, Spinner } from 'react-bootstrap';
+import { Card, Col, Row} from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPosts, selectPostIds, selectPostById } from './postsSlice';
+import { fetchPosts, selectAllPosts } from './postsSlice';
 import { TimeAgo } from './TimeAgo';
 
 
-let PostExcerpt = ({ postId }) => {
-  const post = useSelector(state => selectPostById(state, postId));
+let PostExcerpt = ({post}) => {
   return (
     <Col>
       <article className="post-excerpt" key={post.id}>
@@ -27,31 +26,32 @@ let PostExcerpt = ({ postId }) => {
 
 PostExcerpt = React.memo(PostExcerpt);
 
-export const PostsList = (params) => {
+export const PostsList = ({match}) => {
+  const {label} = match.params;
+  console.log(label);
   const dispatch = useDispatch();
-  const orderedPostIds = useSelector(selectPostIds);
+  const allPosts = useSelector(selectAllPosts);
 
   const postStatus = useSelector(state => state.posts.status);
   const error = useSelector(state => state.posts.error);
 
   useEffect(() => {
     if (postStatus === 'idle') {
-      dispatch(fetchPosts(params.label));
+      dispatch(fetchPosts());
     }
-  }, [postStatus, dispatch, params.label]);
+  }, [postStatus, dispatch]);
+
 
   let content;
 
   if (postStatus === 'loading') {
     content =
       <div className="loader">
-        <div>로딩 중...</div>
-        <Spinner animation="border" role="status">
-          <span className="sr-only">로딩 중..</span>
-        </Spinner>
       </div>
   } else if (postStatus === 'succeeded') {
-    content = orderedPostIds.map(postId => <PostExcerpt key={postId} postId={postId} />);
+    console.log(allPosts);
+    content = allPosts.filter(post => post.labels[0] === label);
+    content = content.map(post => <PostExcerpt key={post.id} post={post} />);
     content = <Row xs={1} md={2} lg={3}>{content}</Row>;
   } else if (postStatus === 'failed') {
     content = <div>{error}</div>
@@ -60,7 +60,7 @@ export const PostsList = (params) => {
   return (
     <section className="posts-list">
       <div className="d-xs-block d-md-none" style={{ height: 50 }} />
-      <h2 className="text-primary mt-3 mb-5">{params.label}</h2>
+      <h2 className="text-primary mt-3 mb-5">{label}</h2>
       {content}
     </section>
   );
