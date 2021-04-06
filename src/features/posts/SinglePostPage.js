@@ -27,6 +27,8 @@ export const SinglePostPage = ({ match }) => {
     );
   }
 
+  const content = post.content.replace('<iframe', '<section><iframe').replace('</iframe>', '</iframe></section>');
+
   return (
     <section>
       <div className="d-xs-block d-md-none" style={{ height: 50 }} />
@@ -39,7 +41,7 @@ export const SinglePostPage = ({ match }) => {
             </div>
           </Card.Header>
           <Card.Body>
-            <div dangerouslySetInnerHTML={{ __html: post.content }} className={style.postContent}></div>
+            <div dangerouslySetInnerHTML={{ __html: content }} className={style.postContent}></div>
           </Card.Body>
         </Card>
       </article>
