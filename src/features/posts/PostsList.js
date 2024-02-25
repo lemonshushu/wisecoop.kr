@@ -12,7 +12,7 @@ let PostExcerpt = ({post}) => {
       <article className="post-excerpt" key={post.id}>
         <Card style={{width: 'auto'}} className="post-excerpt m-3" key={post.id}>
           <Link to={`/posts/${post.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-            <Card.Img variant="top" src={post.images[0].url} />
+            <Card.Img variant="top" src={post.images && post.images[0] ? post.images[0].url : ''} />
             <Card.Body className="p-3">
               <Card.Title style={{ fontWeight: 700 }}>{post.title}</Card.Title>
             </Card.Body>
