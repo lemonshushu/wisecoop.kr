@@ -50,7 +50,7 @@ export const PostsList = ({match}) => {
       </div>
   } else if (postStatus === 'succeeded') {
     console.log(allPosts);
-    content = allPosts.filter(post => post.labels[0] === label);
+    content = allPosts.filter(post => post.labels && post.labels[0] === label);
     content = content.map(post => <PostExcerpt key={post.id} post={post} />);
     content = <Row xs={1} md={2} lg={3}>{content}</Row>;
   } else if (postStatus === 'failed') {
